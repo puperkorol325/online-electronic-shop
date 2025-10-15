@@ -16,6 +16,7 @@
             android:textFontWeight="700"
             android:textSize="20sp"
             android:textColor="@color/primaryBlue"
+            android:drawableRight="@drawable/main_mall_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
