@@ -3,22 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingHorizontal="20dp"
-    android:paddingVertical="25dp">
+    android:paddingVertical="25dp"
+    android:fitsSystemWindows="true">
     <ImageView
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/small_arrow_back"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:paddingStart="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="30dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,15 +56,26 @@
                 android:layout_height="48dp"
                 android:background="@drawable/edit_text_bg"
                 android:backgroundTintMode="add"
-                android:padding="16dp"
-                android:layout_marginTop="10dp"/>
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:maxLines="1"/>
+            <TextView
+                android:id="@+id/user_email_phone_invalid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textSize="13sp"
+                android:textFontWeight="400"
+                android:textColor="@android:color/holo_red_dark"
+                android:text=""/>
         </LinearLayout>
         <Button
+            android:id="@+id/submit_button"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:backgroundTint="@color/primaryBlue"
-            android:text="Восстановить"
-            android:layout_marginTop="50dp"
+            android:text="Войти"
+            android:layout_marginTop="30dp"
             />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

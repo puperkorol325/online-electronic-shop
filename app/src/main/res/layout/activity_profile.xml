@@ -2,22 +2,31 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
     <include
+        android:id="@+id/top_panel"
         layout="@layout/top_panel_minor"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="50dp"
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
+        android:paddingBottom="100dp"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,8 +43,26 @@
                 android:id="@+id/profile_pic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/profile_pic"/>
+                android:src="@drawable/profile_pic"
+                android:scaleType="centerCrop"/>
         </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textSize="13sp"
+            android:textFontWeight="400"
+            android:text="Мой логин"
+            android:layout_marginTop="30dp"/>
+        <TextView
+            android:id="@+id/user_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
+            android:textFontWeight="800"
+            android:text=""
+            android:layout_marginTop="10dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,8 +77,20 @@
             android:layout_height="48dp"
             android:background="@drawable/edit_text_bg"
             android:backgroundTintMode="add"
-            android:padding="16dp"
-            android:layout_marginTop="10dp"/>
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:lines="1"/>
+        <TextView
+            android:id="@+id/name_invalid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textSize="12sp"
+            android:textFontWeight="400"
+            android:textColor="@android:color/holo_red_dark"
+            android:text=""/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,28 +99,63 @@
             android:textFontWeight="400"
             android:text="Пароль"
             android:layout_marginTop="30dp"/>
-        <EditText
-            android:id="@+id/user_password"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/edit_text_bg"
-            android:backgroundTintMode="add"
-            android:padding="16dp"
-            android:layout_marginTop="10dp"
-            android:inputType="textPassword"
-            android:drawableRight="@drawable/password_eye"/>
+            android:layout_height="wrap_content"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/black">
+
+            <EditText
+                android:id="@+id/user_password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edit_text_bg"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:inputType="numberPassword"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:lines="1"
+                android:digits="0123456789!@#$%^&amp;*()_+-=[]{}|;:,./?&lt;&gt;"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/password_requirements"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textFontWeight="400"
+            android:layout_marginTop="5dp"
+            android:textColor="#838589"
+            android:drawableLeft="@drawable/info_icon"
+            android:text=" Пароль должен содержать минимум 8 знаков и спец. символ"
+            />
 
         <Button
+            android:id="@+id/submit_button"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:backgroundTint="@color/primaryBlue"
             android:text="Подтвердить"
             android:layout_marginTop="50dp"
+
+            />
+
+        <Button
+            android:id="@+id/leave_account_button"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/primaryBlue"
+            android:text="Выйти из аккаунта"
+            android:layout_marginTop="50dp"
+
             />
 
     </LinearLayout>
+    </ScrollView>
 
     <include
+        android:id="@+id/bottom_panel"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         layout="@layout/bottom_panel"

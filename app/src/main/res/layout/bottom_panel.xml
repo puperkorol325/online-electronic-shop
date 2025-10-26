@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="60dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:paddingLeft="20dp"
@@ -10,13 +10,14 @@
     android:background="@android:color/white">
     <LinearLayout
         android:id="@+id/bottom_panel_to_main_page"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
         android:orientation="vertical"
         android:gravity="center"
         >
         <ImageView
+            android:id="@+id/home_drawable"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/bottom_panel_home" />
@@ -24,18 +25,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Главная"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:textSize="12dp"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/bottom_panel_to_wishlist"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
         android:orientation="vertical"
         android:gravity="center"
         >
         <ImageView
+            android:id="@+id/wishlist_drawable"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/bottom_panel_wishlist" />
@@ -43,18 +45,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Избранное"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:textSize="12dp"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/bottom_panel_to_order"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
         android:orientation="vertical"
         android:gravity="center"
         >
         <ImageView
+            android:id="@+id/order_drawable"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/bottom_panel_order" />
@@ -62,26 +65,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Заказ"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:textSize="12dp"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/bottom_panel_to_profile"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
         android:orientation="vertical"
         android:gravity="center"
         >
         <ImageView
+            android:id="@+id/login_drawable"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/bottom_panel_login" />
         <TextView
+            android:id="@+id/to_login_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Войти"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:textSize="12dp"/>
     </LinearLayout>
 </LinearLayout>

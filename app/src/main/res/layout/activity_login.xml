@@ -3,14 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingHorizontal="20dp"
-    android:paddingVertical="25dp">
+    android:paddingVertical="25dp"
+    android:fitsSystemWindows="true">
     <ImageView
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/small_arrow_back"
         app:layout_constraintTop_toTopOf="parent"
+        android:paddingStart="20dp"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <LinearLayout
@@ -18,6 +19,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
+        android:paddingHorizontal="20dp"
         app:layout_constraintBottom_toBottomOf="parent">
         <TextView
             android:layout_width="wrap_content"
@@ -54,8 +56,11 @@
                 android:layout_height="48dp"
                 android:background="@drawable/edit_text_bg"
                 android:backgroundTintMode="add"
-                android:padding="16dp"
-                android:layout_marginTop="10dp"/>
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:lines="1"
+                android:singleLine="true"
+                android:maxLines="1"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,19 +69,30 @@
                 android:textFontWeight="400"
                 android:text="Пароль"
                 android:layout_marginTop="30dp"/>
-            <EditText
-                android:id="@+id/user_password"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_text_input_layout"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/edit_text_bg"
-                android:backgroundTintMode="add"
-                android:padding="16dp"
-                android:layout_marginTop="10dp"
-                android:inputType="textPassword"
-                android:drawableRight="@drawable/password_eye"/>
+                android:layout_height="wrap_content"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/black">
 
+                <EditText
+                    android:id="@+id/user_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:padding="12dp"
+                    android:layout_marginTop="10dp"
+                    android:inputType="numberPassword"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:digits="0123456789!@#$%^&amp;*()_+-=[]{}|;:,./?&lt;&gt;"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
         <Button
+            android:id="@+id/submit_button"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:backgroundTint="@color/primaryBlue"
@@ -85,6 +101,7 @@
             />
     </LinearLayout>
     <TextView
+        android:id="@+id/to_forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
@@ -92,8 +109,11 @@
         android:textFontWeight="600"
         android:text="Забыли пароль?"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingStart="20dp"
+        android:paddingBottom="20dp"
         app:layout_constraintLeft_toLeftOf="parent"/>
     <TextView
+        android:id="@+id/to_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
@@ -102,5 +122,7 @@
         android:text="Зарегистрироваться"
         android:textColor="@color/primaryBlue"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp"
         app:layout_constraintRight_toRightOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

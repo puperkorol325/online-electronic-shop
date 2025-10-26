@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingHorizontal="20dp"
-    android:paddingVertical="25dp">
+    android:paddingVertical="25dp"
+    android:fitsSystemWindows="true">
     <ImageView
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingHorizontal="20dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,8 +54,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/edit_text_bg"
-                android:padding="16dp"
-                android:layout_marginTop="10dp" />
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:maxLines="1"
+                android:inputType="textPersonName"/>
+            <TextView
+                android:id="@+id/name_invalid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textSize="12sp"
+                android:textFontWeight="400"
+                android:textColor="@android:color/holo_red_dark"
+                android:text=""/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,25 +75,72 @@
                 android:textFontWeight="400"
                 android:text="Пароль"
                 android:layout_marginTop="20dp"/>
-            <EditText
-                android:id="@+id/user_password"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_text_input_layout"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/edit_text_bg"
-                android:backgroundTintMode="add"
-                android:padding="16dp"
-                android:layout_marginTop="10dp"
-                android:inputType="textPassword"
-                android:drawableRight="@drawable/password_eye"/>
+                android:layout_height="wrap_content"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/black">
+
+                <EditText
+                    android:id="@+id/user_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:padding="12dp"
+                    android:layout_marginTop="10dp"
+                    android:inputType="numberPassword"
+                    android:maxLines="1"
+                    android:digits="0123456789!@#$%^&amp;*()_+-=[]{}|;:,./?&lt;&gt;"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
             <TextView
+                android:id="@+id/password_requirements"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:textFontWeight="400"
                 android:layout_marginTop="5dp"
                 android:textColor="#838589"
                 android:drawableLeft="@drawable/info_icon"
-                android:text=" Пароль должен содержать минимум 6 символов"
+                android:text=" Пароль должен содержать 8 знаков и спец. символ"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textSize="13sp"
+                android:textFontWeight="400"
+                android:text="Подтвердите пароль"
+                android:layout_marginTop="20dp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/black">
+
+                <EditText
+                    android:id="@+id/user_password_confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:padding="12dp"
+                    android:layout_marginTop="10dp"
+                    android:inputType="numberPassword"
+                    android:maxLines="1"
+                    android:digits="0123456789!@#$%^&amp;*()_+-=[]{}|;:,./?&lt;&gt;"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/user_password_confirm_invalid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textFontWeight="400"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/holo_red_dark"
+                android:text=""
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -96,10 +155,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/edit_text_bg"
-                android:padding="16dp"
-                android:layout_marginTop="10dp" />
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:maxLines="1"
+                android:inputType="number"/>
         </LinearLayout>
         <Button
+            android:id="@+id/submit_button"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:backgroundTint="@color/primaryBlue"
